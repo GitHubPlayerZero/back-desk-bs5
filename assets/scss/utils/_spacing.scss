@@ -1,0 +1,93 @@
+/*
+	spacing：定義各種間距
+	
+	因為 BS 預設的間距不適用，因此自行定義。
+	由於 BS 的 utility 都有設定 !important，因此這邊也需要都加上 !important 才能夠覆蓋 BS 的設定。
+*/
+
+$base: 4px;	// 基本間距
+
+$spacer: (
+	1: $base,	// 4px
+	2: 2 * $base,	// 8px
+	3: 3 * $base,	// 12px
+	4: 4 * $base,	// 16px
+	5: 5 * $base,	// 20px
+	6: 6 * $base,	// 24px
+	7: 7 * $base,	// 28px
+	8: 8 * $base,	// 32px
+	9: 9 * $base,	// 36px
+	10: 10 * $base,	// 40px
+	11: 11 * $base,	// 44px
+	12: 12 * $base,	// 48px
+	1px: 1px,
+	6px: 6px,
+	9px: 9px,
+	16d5px: 16.5px,
+	22px: 22px,
+);
+
+
+// 產出各種間距
+@each $key, $value in $spacer {
+	// margin
+	.mt-#{$key} {
+		margin-top: $value !important;
+	}
+	.me-#{$key} {
+		margin-right: $value !important;
+	}
+	.mb-#{$key} {
+		margin-bottom: $value !important;
+	}
+	.ms-#{$key} {
+		margin-left: $value !important;
+	}
+	.mx-#{$key} {
+		margin-left: $value !important;
+		margin-right: $value !important;
+	}
+	.my-#{$key} {
+		margin-top: $value !important;
+		margin-bottom: $value !important;
+	}
+	.m-#{$key} {
+		margin: $value !important;
+	}
+	
+	// padding
+	.pt-#{$key} {
+		padding-top: $value !important;
+	}
+	.pe-#{$key} {
+		padding-right: $value !important;
+	}
+	.pb-#{$key} {
+		padding-bottom: $value !important;
+	}
+	.ps-#{$key} {
+		padding-left: $value !important;
+	}
+	.px-#{$key} {
+		padding-left: $value !important;
+		padding-right: $value !important;
+	}
+	.py-#{$key} {
+		padding-top: $value !important;
+		padding-bottom: $value !important;
+	}
+	.p-#{$key} {
+		padding: $value !important;
+	}
+	
+	// gap
+	.column-gap-#{$key} {
+		column-gap: $value !important;
+	}
+	.row-gap-#{$key} {
+		row-gap: $value !important;
+	}
+	.gap-#{$key} {
+		gap: $value !important;
+	}
+}

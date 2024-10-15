@@ -1,0 +1,47 @@
+/* side：for 側邊欄 */
+
+.side {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	width: 296px;
+	height: 100dvh;
+	padding-top: 32px;
+	padding-bottom: 32px;
+	
+	position: fixed;
+	
+	// menu link
+	&-nav-link {
+		display: flex;
+		align-items: center;
+		column-gap: 16px;
+		padding-left: 28px;
+		border-left: 4px solid transparent;
+		
+		&.active {
+			border-color: var(--bs-success);
+			color: var(--bs-success);
+			pointer-events: none;
+		}
+		
+		// 讓 a 連結內的元素都不具滑鼠效果，以便偵測 a 連結的點擊
+		* {
+			pointer-events: none;
+		}
+	}
+	
+	// 使用者
+	&-user {
+		display: flex;
+		margin-left: 32px;
+		
+		&-name {
+			line-height: 1.188;
+		}
+		&-email {
+			font-size: 14px;
+		}
+	}
+}

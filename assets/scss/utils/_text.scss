@@ -1,0 +1,32 @@
+/* text：有關文字的設定，但是不包括文字的顏色 */
+
+// 字型
+.font-roboto-mono {
+	font-family: "Roboto Mono", monospace;
+}
+
+
+// 行高
+.line-height-1d25 {
+	line-height: 1.25;
+}
+.line-height-1d5 {
+	line-height: 1.5;
+}
+.line-height-1d188 {
+	line-height: 1.188;
+}
+
+
+/*
+	字體大小
+	因為 BS 預設的大小不適用，因此自行定義。
+	名稱會加上 px，與 BS 區別。
+*/
+$sizes: 12px, 14px;
+
+@each $s in $sizes {
+	.fs-#{$s} {
+		font-size: #{$s};
+	}
+}

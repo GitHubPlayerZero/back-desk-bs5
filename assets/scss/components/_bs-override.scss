@@ -1,0 +1,42 @@
+/* bs-override：覆寫 BS 元件樣式，或是以 BS 元件為基礎再延伸自訂樣式 */
+
+/* BS 下拉選單 */
+.dropdown-toggle {
+	// 若指定 .icon-none 則將 BS 的下拉按鈕移除
+	&.icon-none::after {
+		display: none;
+	}
+}
+
+
+/* BS 列表群組 */
+.list-group-item {
+	&.active {
+		background-color: var(--bs-gray-100);
+		border-color: var(--bs-gray-400);
+		color: inherit;
+	}
+}
+
+
+/* BS 卡片 */
+.card {
+	--bs-card-border-color: var(--bs-gray-400);
+	
+	.card-header {
+		background-color: var(--bs-gray-100);
+	}
+}
+
+
+/* BS 按鈕 */
+.btn {
+	// 改變上下 padding 預設值
+	padding-top: 8px;
+	padding-bottom: 8px;
+	
+	// 改變 btn-light 預設樣式
+	&-light {
+		--bs-btn-border-color: var(--bs-gray-400);
+	}
+}

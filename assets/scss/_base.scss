@@ -1,0 +1,56 @@
+/* base：此專案所需要的全站樣式 */
+
+// Debug
+@if ($isDebug) {
+	div, ul, main, section {
+		outline-style: solid;
+	}
+}
+
+*, *::before, *::after {
+	// Debug
+	@if ($isDebug) {
+		outline: 1px dashed blue;
+	}
+}
+
+img {
+	// 自動適應視窗大小
+	max-width: 100%;
+	height: auto;
+}
+
+img, textarea {
+	// 去除底部多餘空白
+	vertical-align: middle;
+}
+
+// 表單元素
+button, input, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+// 連結
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover {
+	color: var(--bs-success);
+}
+
+code {
+	font-family: "Roboto Mono", monospace;
+	color: var(--bs-success);
+}
+
+:root {
+	--bs-border-color: var(--bs-gray-400);
+	--bs-border-radius: 2px;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	line-height: 1;
+}

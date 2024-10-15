@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+	<%- include('./layout/link-resource'); -%>
+	
+</head>
+
+<body>
+	
+	<div class="side bg-light">
+		
+		<!-- Menu -->
+		<nav>
+			<h1 class="mb-8">
+				<span class="d-none">後台系統</span>
+				<a href="javascript:void(0);" class="d-block ps-8">
+					<img src="../assets/images/logo-ANSWER.svg" alt="logo" class="d-block">
+				</a>
+			</h1>
+			
+			<!-- TODO hover -->
+			<ul class="list-unstyled fw-bold">
+				<li class="mb-6">
+					<a href="javascript:void(0);" class="side-menu-link">
+						<span class="material-icons">assessment</span>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li class="mb-6">
+					<a href="javascript:void(0);" class="side-menu-link">
+						<span class="material-icons">question_answer</span>
+						<span>Question</span>
+					</a>
+				</li>
+				<li class="mb-6">
+					<a href="javascript:void(0);" class="side-menu-link">
+						<span class="material-icons">assignment</span>
+						<span>Assignment</span>
+					</a>
+				</li>
+				<li class="mb-6">
+					<a href="javascript:void(0);" class="side-menu-link">
+						<span class="material-icons">video_library</span>
+						<span>Course</span>
+					</a>
+				</li>
+				<li class="mb-6">
+					<a href="javascript:void(0);" class="side-menu-link">
+						<span class="material-icons">supervisor_account</span>
+						<span>Admin</span>
+					</a>
+				</li>
+				<li class="mb-6">
+					<a href="javascript:void(0);" class="side-menu-link">
+						<span class="material-icons">settings</span>
+						<span>Settings</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+		<!-- 使用者 -->
+		<div class="side-user">
+			<img src="../assets/images/andychen.jpeg" alt="Andy Chen" 
+				class="side-user-photo object-fit-cover rounded-circle">
+			
+			<div class="d-flex flex-column justify-content-between">
+				<div class="side-user-name fw-bold">Andy Chen</div>
+				<div class="side-user-email">andy0401@mail.com</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<!-- <div class="container-fluid">
+		主內容
+	</div> -->
+	
+	
+	<script type="module" src="../main.js"></script>
+</body>
+
+</html>
