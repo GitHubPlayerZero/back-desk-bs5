@@ -1,0 +1,286 @@
+<%
+	const datas = [
+		{
+			id: 1,
+			name: 'Emir Wicks',
+			email: 'emir.wicks@mail.com',
+			verified: '2020/4/12',
+		},
+		{
+			id: 2,
+			name: 'Zaina Goldsmith',
+			email: 'zaina.goldsmith@mail.com',
+			<!-- verified: '2020/4/23', -->
+		},
+		{
+			id: 3,
+			name: 'Mahima Lopez',
+			email: 'mahima.lopez@mail.com',
+			verified: '2021/3/26',
+		},
+		{
+			id: 4,
+			name: 'Pharrell Murray',
+			email: 'pharrell.murray@mail.com',
+			verified: '2022/10/3',
+		},
+		{
+			id: 5,
+			name: 'Annika Mcbride',
+			email: 'annika.mcbride@mail.com',
+			verified: '2023/8/20',
+		},
+		{
+			id: 6,
+			name: 'Fatimah Clark',
+			email: 'fatimah.clark@mail.com',
+			<!-- verified: '2023/2/19', -->
+		},
+		{
+			id: 7,
+			name: 'Klaudia Rhodes',
+			email: 'klaudia.rhodes@mail.com',
+			verified: '2021/6/5',
+		},
+		{
+			id: 8,
+			name: 'Tillie Lucero',
+			email: 'tillie.lucero@mail.com',
+			verified: '2023/5/29',
+		},
+		{
+			id: 9,
+			name: 'Sabrina Stephenson',
+			email: 'sabrina.stephenson@mail.com',
+			verified: '2024/9/7',
+		},
+		{
+			id: 10,
+			name: 'Annie Smith',
+			email: 'annie.smith@mail.com',
+			verified: '2023/12/21',
+		},
+	];
+%>
+
+<table class="table table-hover mb-63px">
+	<thead>
+		<tr class="border-dark">
+			<th scope="col">
+				<div class="d-flex align-items-center">
+					<span class="me-1">ID</span>
+					<span class="material-icons text-success fs-18px">arrow_downward</span>
+				</div>
+			</th>
+			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Verified</th>
+			<th scope="col">&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<% datas.forEach((item) => { %>
+			
+			<tr>
+				<th scope="row">#<%=item.id%></th>
+				<td><%=item.name%></td>
+				<td class="text-transform-lowercase"><%=item.email%></td>
+				<td>
+					<%= item.verified === undefined ? "No" : "Yes" %>
+				</td>
+				<td class="d-flex justify-content-end gap-6" data-func>
+					<a href="javascript:void(0);" class="d-flex" data-func-view="<%=item.id%>" title="View">
+						<span class="material-icons pointer-events-none">visibility</span>
+					</a>
+					<a href="javascript:void(0);" class="d-flex" data-func-edit="<%=item.id%>" title="Modify">
+						<span class="material-icons pointer-events-none">edit</span>
+					</a>
+				</td>
+			</tr>
+			
+		<% }); %>
+		
+	</tbody>
+</table>
+
+
+<!-- Modal - View -->
+<div class="modal fade" id="viewModal" tabindex="-1" 
+	aria-labelledby="viewModalLabel" aria-hidden="true"
+>
+	<!-- Skill：使用 modal-dialog-centered 垂直置中 -->
+	<div class="w-480px modal-dialog modal-dialog-centered">
+		<div class="modal-content p-8">
+			
+			<!-- 資料卡 -->
+			<div class="d-flex column-gap-6">
+				
+				<!-- 照片 -->
+				<div class="flex-shrink-0">
+					<img src="../assets/images/emir.jpeg" alt="Emir Wicks" 
+						class="w-141px h-141px object-fit-cover rounded-start">
+				</div>
+				
+				<!-- 個人資料 -->
+				<div class="flex-grow-1 d-flex flex-column justify-content-between">
+					
+					<!-- 資料內容 -->
+					<div>
+						<div class="d-flex justify-content-between mb-3px">
+							<div class="fs-6" id="viewId"></div>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						
+						<div class="text-transform-capitalize">admin</div>
+						<h4 id="viewModalLabel" class="fw-bold mb-2"></h4>
+						<div class="text-transform-lowercase text-secondary fs-14px" id="viewEmail"></div>
+					</div>
+					
+					<!-- verified -->
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="text-transform-capitalize fs-14px">verified</div>
+						
+						<a data-bs-toggle="collapse" href="#collapseButtons" 
+							class="d-flex text-success collapsed"
+							role="button" aria-expanded="false" aria-controls="collapseButtons"
+						>
+							<span class="material-icons expand_more">expand_more</span>
+							<span class="material-icons expand_less">expand_less</span>
+						</a>
+					</div>
+				</div>
+				
+			</div>
+			<!-- 資料卡 - end -->
+			
+			<!-- 折疊按鈕 -->
+			<div class="collapse" id="collapseButtons">
+				<div class="d-flex justify-content-end pt-8">
+					<button type="button" class="btn btn-outline-danger fw-bold px-8 me-4">Deactivate</button>
+					<button type="button" class="btn btn-success fw-bold px-8">Edit</button>
+				</div>
+			</div>
+			
+		</div>
+		<!-- modal-content - end -->
+	</div>
+	<!-- modal-dialog - end -->
+</div>
+<!-- Modal - View - end -->
+
+
+<!-- Modal - Edit -->
+<!-- Skill：使用 data-bs-backdrop="static" data-bs-keyboard="false" 阻止點擊外面或用鍵盤關閉 -->
+<div class="modal fade" id="editModal" tabindex="-1" 
+	data-bs-backdrop="static" data-bs-keyboard="false" 
+	aria-labelledby="editModalLabel" aria-hidden="true"
+>
+	<!-- Skill：使用 modal-dialog-scrollable 滾動長內容 -->
+	<div class="modal-dialog modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="editModalLabel">
+					<span id="editTitle">Edit</span> 
+					Admin
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, odio.</p>
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal - Edit - end -->
+
+
+<script>
+	// Skill：無法在 JS 模組中引用，因此先在全域引用進來
+	const datas = <%- JSON.stringify(datas) %>;
+	
+	// 取得資料
+	function getData(id)
+	{
+		let data;
+		
+		if (id) {
+			id = Number(id);
+			data = datas.find((item) => {
+				return item.id === id;
+			});
+		}
+		
+		return data;
+	}
+</script>
+
+<script type="module">
+	
+	import { Modal } from 'bootstrap';
+	
+	/* 元素們 */
+	// View modal
+	const elemViewId = document.querySelector("#viewId");
+	const elemViewName = document.querySelector("#viewModalLabel");
+	const elemViewEmail = document.querySelector("#viewEmail");
+	// Edit modal
+	const elemEditModal = document.getElementById('editModal');
+	const elemEditTitle = document.getElementById('editTitle');
+	
+	
+	/* Modal 們 */
+	const viewModal = new Modal(document.getElementById('viewModal'));
+	const editModal = new Modal(document.getElementById('editModal'));
+	
+	// Skill：設定 edit modal 開啟時執行的動作
+	elemEditModal.addEventListener('show.bs.modal', (event) => {
+		// console.log(event);
+		
+		/**
+		 * Skill：
+		 * 透過按鈕綁定 BS 動作觸發者，才會有 relatedTarget (不然會是 undefined)。
+		 * "Add New Admin" 是由按鈕綁定觸發，Modify 是由 JS 呼叫觸發，因此只有新增才會有 relatedTarget。
+		 */
+		if (event.relatedTarget) {
+			console.log("新增...");
+			elemEditTitle.textContent = "New";
+		}
+	});
+	
+	
+	// 點擊功能欄按鈕
+	document.querySelectorAll("[data-func]").forEach((item) => {
+		item.addEventListener("click", (event) => {
+			
+			const viewId = event.target.dataset.funcView;
+			const editId = event.target.dataset.funcEdit;
+			
+			const id = viewId || editId;
+			const data = getData(id);	// 取得資料
+			console.log(`Find data ==>`, data);
+			
+			if (viewId !== undefined)
+			{
+				console.log(`view ==> ${viewId}`);
+				elemViewId.textContent = `#${data.id}`;
+				elemViewName.textContent = data.name;
+				elemViewEmail.textContent = data.email;
+				
+				viewModal.show();
+			}
+			else if (editId !== undefined)
+			{
+				console.log(`edit ==> ${editId}`);
+				editModal.show();
+			}
+		});
+	});
+	
+</script>

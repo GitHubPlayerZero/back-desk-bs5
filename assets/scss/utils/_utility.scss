@@ -1,6 +1,35 @@
 /* utility：其它 utility */
 
-//width
+// width
+.w-141px {
+	width: 141px;
+}
 .w-320px {
 	width: 320px;
+}
+.w-480px {
+	width: 480px;
+}
+
+// height
+.h-141px {
+	height: 141px;
+}
+
+// curosr
+.cursor-not-allowed {
+	cursor: not-allowed;
+}
+
+// pointer-events
+.pointer-events-none {
+	pointer-events: none;
+}
+
+// text-transform
+.text-transform-lowercase {
+	text-transform: lowercase;
+}
+.text-transform-capitalize {
+	text-transform: capitalize;
 }

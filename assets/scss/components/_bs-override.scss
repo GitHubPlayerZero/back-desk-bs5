@@ -31,6 +31,9 @@
 
 /* BS 按鈕 */
 .btn {
+	// 改變行高預設值
+	line-height: $line-height;
+	
 	// 改變上下 padding 預設值
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -39,4 +42,48 @@
 	&-light {
 		--bs-btn-border-color: var(--bs-gray-400);
 	}
+}
+
+
+/* 表格 */
+.table {
+	--bs-table-hover-bg: var(--bs-gray-100);
+	
+	> thead {
+		th {
+			padding: 0 8px 4px 0;
+			
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+	
+	> tbody {
+		th, td {
+			padding: 17px 8px 14px 0;
+			
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+
+/* 分頁 */
+.pagination {
+	--bs-link-color: var(--bs-success);
+	--bs-pagination-active-bg: var(--bs-success);
+	--bs-pagination-border-color: var(--bs-success);
+	
+	.page-link {
+		padding-bottom: 7px;
+	}
+}
+
+
+/* Modal */
+.modal {
+	--bs-modal-border-radius: 2px;
 }

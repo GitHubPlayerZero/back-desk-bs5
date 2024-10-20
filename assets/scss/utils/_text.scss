@@ -13,9 +13,6 @@
 .line-height-1d5 {
 	line-height: 1.5;
 }
-.line-height-1d188 {
-	line-height: 1.188;
-}
 
 
 /*
@@ -23,7 +20,7 @@
 	因為 BS 預設的大小不適用，因此自行定義。
 	名稱會加上 px，與 BS 區別。
 */
-$sizes: 12px, 14px;
+$sizes: 12px, 14px, 18px;
 
 @each $s in $sizes {
 	.fs-#{$s} {

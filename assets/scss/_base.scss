@@ -2,17 +2,25 @@
 
 // Debug
 @if ($isDebug) {
+	*, *::before, *::after {
+		outline: 1px dashed blue;
+	}
 	div, ul, main, section {
 		outline-style: solid;
 	}
 }
 
-*, *::before, *::after {
-	// Debug
-	@if ($isDebug) {
-		outline: 1px dashed blue;
-	}
+
+:root {
+	--bs-border-color: var(--bs-gray-400);
+	--bs-border-radius: 2px;
 }
+
+body {
+	font-family: "Lato", sans-serif;
+	line-height: $line-height;
+}
+
 
 img {
 	// 自動適應視窗大小
@@ -43,14 +51,4 @@ a:hover {
 code {
 	font-family: "Roboto Mono", monospace;
 	color: var(--bs-success);
-}
-
-:root {
-	--bs-border-color: var(--bs-gray-400);
-	--bs-border-radius: 2px;
-}
-
-body {
-	font-family: "Lato", sans-serif;
-	line-height: 1;
 }

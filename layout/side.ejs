@@ -1,3 +1,17 @@
+<%
+	let activeAssignment = "";
+	let activeAdmin = "";
+
+	switch (menu) {
+		case 'assignment':
+			activeAssignment = "active";
+			break;
+		case 'admin':
+			activeAdmin = "active";
+			break;
+	}
+%>
+
 <div class="side bg-light">
 	
 	<div>
@@ -12,37 +26,37 @@
 		<nav>
 			<ul class="list-unstyled fw-bold">
 				<li class="mb-6">
-					<a href="javascript:void(0);" class="side-nav-link">
+					<a href="javascript:void(0);" class="side-nav-link cursor-not-allowed">
 						<span class="material-icons">assessment</span>
 						<span>Dashboard</span>
 					</a>
 				</li>
 				<li class="mb-6">
-					<a href="javascript:void(0);" class="side-nav-link">
+					<a href="javascript:void(0);" class="side-nav-link cursor-not-allowed">
 						<span class="material-icons">question_answer</span>
 						<span>Question</span>
 					</a>
 				</li>
 				<li class="mb-6">
-					<a href="javascript:void(0);" class="side-nav-link active">
+					<a href="../pages/assignment.html" class="side-nav-link <%=activeAssignment%>">
 						<span class="material-icons">assignment</span>
 						<span>Assignment</span>
 					</a>
 				</li>
 				<li class="mb-6">
-					<a href="javascript:void(0);" class="side-nav-link">
+					<a href="javascript:void(0);" class="side-nav-link cursor-not-allowed">
 						<span class="material-icons">video_library</span>
 						<span>Course</span>
 					</a>
 				</li>
 				<li class="mb-6">
-					<a href="javascript:void(0);" class="side-nav-link">
+					<a href="../pages/admin.html" class="side-nav-link <%=activeAdmin%>">
 						<span class="material-icons">supervisor_account</span>
 						<span>Admin</span>
 					</a>
 				</li>
 				<li class="mb-6">
-					<a href="javascript:void(0);" class="side-nav-link">
+					<a href="javascript:void(0);" class="side-nav-link cursor-not-allowed">
 						<span class="material-icons">settings</span>
 						<span>Settings</span>
 					</a>
@@ -74,7 +88,13 @@
 		const target = event.target;
 		
 		// 點擊到 a 連結，處理 active 樣式
-		if (target.tagName.toUpperCase() === 'A') {
+		if (target.tagName.toUpperCase() === 'A')
+		{
+			// 無效的連結不繼續處理
+			if (target.classList.contains("cursor-not-allowed")) {
+				return;
+			}
+			
 			elemLinks.forEach((item) => {
 				item.classList.remove("active");
 			});

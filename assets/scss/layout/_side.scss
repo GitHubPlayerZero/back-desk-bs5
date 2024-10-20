@@ -19,6 +19,11 @@
 		column-gap: 16px;
 		padding-left: 28px;
 		border-left: 4px solid transparent;
+		line-height: 1.5;
+		
+		&.cursor-not-allowed:hover {
+			text-decoration: line-through;
+		}
 		
 		&.active {
 			border-color: var(--bs-success);

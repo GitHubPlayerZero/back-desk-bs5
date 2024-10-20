@@ -33,3 +33,22 @@
 	object-fit: cover;
 	border-radius: 50%;
 }
+
+
+/* 折疊效果 */
+// 展開
+.expand_more {
+	display: none;
+}
+.expand_less {
+	display: block;
+}
+// 收合
+.collapsed {
+	> .expand_more {
+		display: block;
+	}
+	> .expand_less {
+		display: none;
+	}
+}
