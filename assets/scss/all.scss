@@ -7,14 +7,13 @@
 // Components
 @import './components/layout';
 @import './components/bs-override';
-
+@import './components/ckeditor_override';
 
 // Layout
 @import './layout/side';
 
-
 // Pages
-
+@import './pages/assignment';
 
 // Utilities
 @import './utils//text';

@@ -144,8 +144,8 @@
 					
 				</div>
 				
-				<!-- 內容 -->
-				<div class="tab-content flex-grow-1" id="nav-tabContent">
+				<!-- problemTabContent -->
+				<div class="problemTabContent tab-content flex-grow-1">
 					
 					<!-- 問題區 -->
 					<!-- problem 1 -->
@@ -172,7 +172,7 @@
 							<div class="card-body pe-8 pb-22px">
 								
 								<!-- 提問者 -->
-								<div class="d-flex mb-16d5px">
+								<div class="asker d-flex mb-16d5px">
 									<!-- 頭像 -->
 									<img src="../assets/images/emilywang.jpeg" alt="Emily Wang" class="user-photo flex-shrink-0 me-2">
 									
@@ -194,7 +194,7 @@
 								</div>
 								
 								<!-- 助教 -->
-								<div class="d-flex">
+								<div class="assistant d-flex">
 									<!-- 頭像 -->
 									<img src="../assets/images/andychen.jpeg" alt="Emily Wang" class="user-photo flex-shrink-0 me-2">
 									
@@ -212,7 +212,6 @@
 												<a href="javascript:(0);" class="d-flex">
 													<span class="material-icons-outlined">star_rate</span>
 												</a>
-												<!-- TODO CKEditor -->
 												<a href="javascript:(0);" class="d-flex">
 													<span class="material-icons">edit</span>
 												</a>
@@ -227,6 +226,7 @@
 										</p>
 									</div>
 								</div>
+								
 							</div>
 							<!-- Card body - end -->
 							
@@ -255,7 +255,7 @@
 					<!-- 問題區 - end -->
 					
 					<!-- 底下按鈕功能 -->
-					<div class="d-flex justify-content-between align-items-center mt-4">
+					<div class="btnArea d-flex justify-content-between align-items-center mt-4">
 						<div class="d-flex column-gap-6">
 							<a href="javascript:(0);" class="d-flex">
 								<span class="material-icons">chevron_left</span>
@@ -269,20 +269,82 @@
 							<button type="button" class="btn btn-outline-success fw-bold px-8 me-3">
 								Mark as read
 							</button>
-							<button type="button" class="btn btn-success fw-bold px-8">
+							<button type="button" class="btn btn-success fw-bold px-8" id="btnReplay">
+								Reply
+							</button>
+						</div>
+					</div>
+					
+					<!-- 編輯區 -->
+					<div class="editor d-none position-relative">
+						<textarea id="editorReplay" placeholder="Reply an answer…"></textarea>
+						
+						<div class="position-absolute bottom-16px right-24px">
+							<button type="button" class="btn btn-outline-success fw-bold px-8 me-2" id="btnEditorCancel">
+								Cancel
+							</button>
+							<button type="button" class="btn btn-success fw-bold px-8" id="btnEditorReply">
 								Reply
 							</button>
 						</div>
 					</div>
 					
 				</div>
-				<!-- 內容 - end -->
+				<!-- problemTabContent - end -->
 				
 			</div>
 			<!-- 操作區 - end -->
 			
 		</div>
 	</main>
+	
+	
+	<script>
+		
+		// 元素 - 問題內容區塊
+		const elemProblemTabContent = document.querySelector(".problemTabContent");
+		
+		const back = () => {
+			elemProblemTabContent.classList.remove("replay");
+		};
+		
+		// 問題區 Replay button 動作
+		document.querySelector("#btnReplay").addEventListener("click", (event) => {
+			elemProblemTabContent.classList.add("replay");
+		});
+		
+		// editor 區域 button 動作
+		document.querySelector("#btnEditorCancel").addEventListener("click", back);
+		document.querySelector("#btnEditorReply").addEventListener("click", back);
+		
+	</script>
+	
+	<script type="module">
+		
+		import 'ckeditor5/ckeditor5.css';
+		import { ClassicEditor, Essentials, Heading, Bold, Italic, List, Image, ImageInsert, Link, Code } from 'ckeditor5';
+
+		ClassicEditor
+			.create(document.querySelector('#editorReplay'), {
+				plugins: [
+					Essentials, // 必要
+					Heading, Bold, Italic, 
+					List, 
+					Image, ImageInsert, 
+					Link, Code,
+				],
+				toolbar: [
+					'heading', 'bold', 'italic', 
+					'bulletedList', 'numberedList', 
+					'uploadImage', 
+					'link', 'code',
+				]
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+
+	</script>
 	
 	<script type="module" src="../main.js"></script>
 </body>

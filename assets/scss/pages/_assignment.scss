@@ -1,0 +1,28 @@
+/* for Assignment 頁面樣式 */
+
+// Skill：須固定外層容器的寬度，以避免 CKEditor 的內容太長把畫面撐開
+.problemTabContent {
+	width: calc(100% - 336px);
+}
+
+// Skill：利用父容器加入／移除 class，達到其子元素自動改變樣式
+.replay {
+	.card {
+		border-bottom: none;
+	}
+	.card-body {
+		padding-bottom: 0 !important;
+	}
+	.asker {
+		margin-bottom: 12.5px !important;
+	}
+	.assistant {
+		display: none !important;
+	}
+	.btnArea {
+		display: none !important;
+	}
+	.editor {
+		display: block !important;
+	}
+}

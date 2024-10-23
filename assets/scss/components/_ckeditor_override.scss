@@ -1,0 +1,19 @@
+/* ckeditor-override：覆寫 CKEditor 元件樣式 */
+
+// tool bar
+.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content {
+	border-color: var(--bs-gray-400);
+}
+.ck-sticky-panel .ck-toolbar {
+	background-color: var(--bs-gray-100);
+}
+
+// body
+.ck.ck-editor__main {
+	border: 1px solid var(--bs-gray-400);
+	height: 263px;
+}
+.ck.ck-editor__main > .ck-editor__editable {
+	border: none;
+	height: 195px;
+}
