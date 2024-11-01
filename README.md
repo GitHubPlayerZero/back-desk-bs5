@@ -20,11 +20,11 @@
 ## 🎬 Demo
 - Assignment
 
-
+[Assignment.webm](https://github.com/user-attachments/assets/1aedec30-995a-4594-8fc1-d6488f6c5edb)
 
 - Admin
 
-
+[Admin.webm](https://github.com/user-attachments/assets/b4dcba35-a1f2-495e-b304-95d3104fb968)
 
 <br>
 
