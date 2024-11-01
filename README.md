@@ -1,9 +1,10 @@
 # 切版作品：後台維護
 
-[Website]()｜[設計稿](https://xd.adobe.com/view/456141fc-d0a0-44d4-93ad-6ab54a4b5351-1032/grid/)
+[設計稿](https://xd.adobe.com/view/456141fc-d0a0-44d4-93ad-6ab54a4b5351-1032/grid/)
 
 ## 📌 特色
-- 使用 Bootstrap 5，練習使用 component、utility，輔以手刻。
+- 此作品主要為練習使用 Bootstrap 5，使用其表單、 component、utility 等各功能。
+- 瞭解 BS5 樣式設定並覆蓋其部份樣式，以客製化為完全符合設計稿需求，再輔以手刻。
 - 使用 EJS 共用相同的佈局。
 - 專案環境使用 Vite。
 - 單頁式，無 RWD
