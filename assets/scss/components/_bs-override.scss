@@ -1,6 +1,6 @@
 /* bs-override：覆寫 BS 元件樣式，或是以 BS 元件為基礎再延伸自訂樣式 */
 
-/* BS 下拉選單 */
+/* 下拉選單 */
 .dropdown-toggle {
 	// 若指定 .icon-none 則將 BS 的下拉按鈕移除
 	&.icon-none::after {
@@ -9,7 +9,7 @@
 }
 
 
-/* BS 列表群組 */
+/* 列表群組 */
 .list-group-item {
 	&.active {
 		background-color: var(--bs-gray-100);
@@ -19,7 +19,7 @@
 }
 
 
-/* BS 卡片 */
+/* 卡片 */
 .card {
 	--bs-card-border-color: var(--bs-gray-400);
 	
@@ -29,7 +29,7 @@
 }
 
 
-/* BS 按鈕 */
+/* 按鈕 */
 .btn {
 	// 改變行高預設值
 	line-height: $line-height;
@@ -41,6 +41,11 @@
 	// 改變 btn-light 預設樣式
 	&-light {
 		--bs-btn-border-color: var(--bs-gray-400);
+	}
+	
+	&:disabled {
+		border-color: var(--bs-gray-400);
+		color: var(--bs-gray-400);
 	}
 }
 
@@ -86,4 +91,61 @@
 /* Modal */
 .modal {
 	--bs-modal-border-radius: 2px;
+	
+	.modal-dialog {
+		width: 480px;
+	}
+	
+	.modal-content {
+		padding: 32px;
+	}
+	
+	.modal-header {
+		padding: 0 0 32px;
+	}
+	
+	.modal-body {
+		padding: 0 0 16px;
+	}
+	
+	.modal-footer {
+		padding: 32px 0 0;
+		button {
+			margin: 0;
+		}
+	}
+	
+	.btn {
+		font-weight: bold;
+		padding: 8px 32px;
+	}
+}
+
+
+/* Form */
+.form-label {
+	margin-bottom: 4px;
+}
+
+.form-control {
+	padding: 16px;
+	line-height: $line-height;
+	border-color: var(--bs-gray-900);
+	
+	&:disabled {
+		background-color: var(--bs-gray-100);
+		border: none;
+	}
+}
+
+.form-select {
+	line-height: $line-height;
+	padding: 16px;
+}
+
+.form-check-input {
+	border-color: var(--bs-gray-900);
+	border-width: 2px;
+	width: 19px;
+	height: 19px;
 }

@@ -1,0 +1,45 @@
+/* for Admin 頁面樣式 */
+
+// Add/Edit modal
+#editModal {
+	.modal-body {
+		// 隱藏 scroll bar
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+	
+	.block-unverified {
+		display: flex;
+		align-items: center;
+	}
+	.block-verified {
+		display: none;
+	}
+	
+	.verified {
+		.block-unverified {
+			display: none;
+		}
+		.block-verified {
+			display: flex;
+			align-items: center;
+		}
+	}
+	
+	.form-check {
+		display: flex;
+		align-items: flex-end;
+		column-gap: 11px;
+		
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+	}
+	
+	&:not(.modify) {
+		.deactivate {
+			display: none;
+		}
+	}
+}
