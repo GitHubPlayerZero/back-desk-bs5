@@ -199,7 +199,7 @@
 			
 			<!-- modal-body -->
 			<div class="modal-body">
-				<form id="formEdit">
+				<form id="formEdit" novalidate>
 					
 					<!-- Account -->
 					<fieldset>
@@ -208,11 +208,15 @@
 						<div class="mb-4">
 							<label for="accountName" class="form-label fs-14px">Name</label>
 							<input type="text" class="form-control" id="accountName" placeholder="請輸入姓名" required>
+							
+							<div class="invalid-feedback">請輸入姓名！</div>
 						</div>
 						
 						<div class="mb-4">
 							<label for="accountEmail" class="form-label fs-14px">Email</label>
 							<input type="email" class="form-control" id="accountEmail" placeholder="name@example.com" required>
+							
+							<div class="invalid-feedback">請輸入正確的 Email！</div>
 						</div>
 						
 					</fieldset>
@@ -259,6 +263,8 @@
 							<option value="pm">PM</option>
 							<option value="littleOne">小嘍嘍</option>
 						</select>
+						
+						<div class="invalid-feedback">請選擇 Access Level！</div>
 					</fieldset>
 					
 					<hr>
@@ -376,10 +382,20 @@
 	
 	// 元素: Edit modal - form
 	const elemEditForm = document.getElementById('formEdit');
-	elemEditForm.addEventListener("submit", (event) => {
+	elemEditForm.addEventListener("submit", (event) =>
+	{
 		event.preventDefault();
-		alert("submit!");
-		editModal.hide();
+		
+		// 檢核成功
+		if (elemEditForm.checkValidity()) {
+			alert("submit!");
+			editModal.hide();
+		}
+		// 檢核失敗
+		else {
+			// 加入 BS form validation 效果
+			elemEditForm.classList.add('was-validated');
+		}
 	});
 	
 	// 元素: Edit modal - submit button
@@ -460,6 +476,9 @@
 		elemBlockVerification.classList.remove("verified");
 		elemVerifiedDate.textContent = "";
 		elemBtnVerification.disabled = false;
+		
+		// 移除 BS form validation 效果
+		elemEditForm.classList.remove('was-validated');
 	});
 	
 	
