@@ -19,7 +19,7 @@
 <!-- Icon：此連結能使用所有樣式 -->
 <link
 	href="https://fonts.googleapis.com/css?family=Material+Icons%7CMaterial+Icons+Outlined%7CMaterial+Icons+Two+Tone%7CMaterial+Icons+Round%7CMaterial+Icons+Sharp"
-	rel="stylesheet">  <script type="module" crossorigin src="/back-desk-bs5/assets/admin-SJGOfIjE.js"></script>
+	rel="stylesheet">  <script type="module" crossorigin src="/back-desk-bs5/assets/admin-_yB8i5gQ.js"></script>
   <link rel="modulepreload" crossorigin href="/back-desk-bs5/assets/main-BWZP-Y9q.js">
   <link rel="stylesheet" crossorigin href="/back-desk-bs5/assets/main-DgFuyuYk.css">
 </head>
@@ -456,7 +456,7 @@
 			
 			<!-- modal-body -->
 			<div class="modal-body">
-				<form id="formEdit">
+				<form id="formEdit" novalidate>
 					
 					<!-- Account -->
 					<fieldset>
@@ -465,11 +465,15 @@
 						<div class="mb-4">
 							<label for="accountName" class="form-label fs-14px">Name</label>
 							<input type="text" class="form-control" id="accountName" placeholder="請輸入姓名" required>
+							
+							<div class="invalid-feedback">請輸入姓名！</div>
 						</div>
 						
 						<div class="mb-4">
 							<label for="accountEmail" class="form-label fs-14px">Email</label>
 							<input type="email" class="form-control" id="accountEmail" placeholder="name@example.com" required>
+							
+							<div class="invalid-feedback">請輸入正確的 Email！</div>
 						</div>
 						
 					</fieldset>
@@ -516,6 +520,8 @@
 							<option value="pm">PM</option>
 							<option value="littleOne">小嘍嘍</option>
 						</select>
+						
+						<div class="invalid-feedback">請選擇 Access Level！</div>
 					</fieldset>
 					
 					<hr>
